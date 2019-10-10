@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>DDD - Domain Driven Design</title>
+
+		<meta name="description" content="Apresenta os conceitos principais do livro Domain Driven Design - Eric Evans">
+		<meta name="author" content="Jefferson Mariano de Souza">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>DDD</h1>
+					<h2>Domain Driven Design</h2>
+					<p>
+						<a href="https://github.com/studiojms">Jefferson Mariano de Souza</a>
+					</p>
+				</section>
+
+				<section>
+					<img src="img/ddd-book.jpg" />
+				</section>
+
+				<section>
+					<h3>Subtítulo: Enfrentando complexidade no coração do software</h3>
+				</section>
+
+				<section>
+					<h3>Dividido em 4 partes</h2>
+					<ul>
+						<li>I - Fazendo o Domain Model funcionar</li>
+						<li>II - Os blocos de montagem de um Model-Driven Design</li>
+						<li>III - Refatoração para uma visão mais profunda</li>
+						<li>IV - Design Estratégico</li>
+					</ul>
+				</section>
+				<section>
+					<h3>I - Fazendo o Domain Model funcionar</h3>
+
+					<p>Apresenta os princípios básicos do DDD, definição de termos e traz um overview das implicações do uso de modelagem de domínio para direcionar comunicação e design</p>
+				</section>
+				<section>
+					<h3>II - Os blocos de montagem de um Model-Driven Design</h3>
+
+					<p>- agrupa boas práticas de domínio orientado a objetos em alguns pontos básicos</p>
+					<p>- faz a ponte entre modelagem e prática</p>
+					<p>- foca em tipos de decisão que mantém o modelo e a implementação alinhados, um auxiliando o outro</p>
+				</section>
+				<section>
+					<h3>III - Refatoração para uma visão mais profunda</h3>
+
+					<p>- vai além do desafio de definir os blocos básicos, buscando construir os modelos de forma prática que consiga se pagar</p>
+					<p>- foca no processo da descoberta (modelos valiosos não emergem imediatamente, requerem um bom aprofundamento do domínio)</p>
+					<p>- parte de um modelo simples e, explorando interações, evolui este modelo até chegar em algo mais profundo</p>
+				</section>
+				<section>
+					<h3>IV - Design Estratégico</h3>
+
+					<p>- busca situar problemas de sistemas grandes e complexos, de grandes corporações</p>
+					<p>- interação com sistemas externos e sistemas legados</p>
+				</section>
+
+				<section>
+					<blockquote>
+						Um bom modelo do domínio pode ser muito valioso, mas não é algo fácil de fazer. Poucos fazem isso bem, e é muito difícil de ensinar.
+					</blockquote>
+					<cite>Eric Evans</cite>
+				</section>
+
+				<section>
+					<blockquote>
+						Alguns de meus projetos foram um sucesso, outros falharam.
+						Uma característica comum dos projetos que foram sucesso foi um modelo de domínimo rico que evoluiu através de interações de design, que se tornaram parte da estrutura do projeto.
+					</blockquote>
+					<cite>Eric Evans</cite>
+				</section>
+
+				<section>
+					<p>No desenvolvimento do livro, o autor busca comentar e exemplificar com alguns projetos de sua experiência.</p>
+				</section>
+
+				<section>
+					<h2>Modelo</h2>
+					<p class="fragment">Uma representação de algo, de acordo com os conhecimentos de quem o representa</p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Modelo do mundo</h3>
+					</section>
+					<section>
+						<h6>Sec 6 A.C.</h6>
+						<img src="img/evolucao-mapa-mundi_001.jpg">
+					</section>
+					<section>
+						<h6>Sec 5 A.C.</h6>
+						<img src="img/evolucao-mapa-mundi_002.png">
+					</section>
+					<section>
+						<h6>Sec 15 D.C.</h6>
+						<img src="img/evolucao-mapa-mundi_010.jpg">
+					</section>
+					<section>
+						<h6>Sec 16 D.C.</h6>
+						<img src="img/evolucao-mapa-mundi_017.jpeg">
+					</section>
+					<section>
+						<h6>Atualmente</h6>
+						<img src="img/evolucao-mapa-mundi_019.jpg">
+					</section>
+				</section>
+
+				<section>
+					<h2>Modelo</h2>
+					<section>
+						<p>
+							- é o coração do design
+						</p>
+						<p class="fragment">
+							- um bom modelo está intimamente ligado com a implementação (a análise de um se aplica ao produto final)
+						</p>
+						<p class="fragment">
+							- é a estrutura base da linguagem a ser usada na comunicação do time
+						</p>
+					</section>
+					<section>
+						<p>
+							- Para entender um modelo, é necessário absorvê-lo através de interações
+						</p>
+						<p class="fragment">
+							- Geralmente o modelo é algo fora do dia-a-dia do desenvolvedor (sistema fiscal, sistema de controle de linha de produção, sistema de apontamento de horas etc)
+						</p>
+					</section>
+					<section>
+						<q>A chave para um bom modelo é uma boa comunicação</q>
+					</section>
+				</section>
+
+				<section>
+					<h2>Comunicação</h2>
+					<section>
+						<h6 class="fragment">Experts de domínio</h6>
+						<p class="fragment">
+							- geralmente tem seus jargões técnicos e raramente falam a "mesma língua" que os times de desenvolvedores
+						</p>
+					</section>
+					<section>
+						<h6>Desenvolvedores</h6>
+						<p class="fragment">
+							- conseguem entender e discutir as características do sistema, com termos funcionais, porém <span class="fragment grow highlight-red">desprovidos</span> de significados da linguagem dos experts
+						</p>
+					</section>
+					<section>
+						<h6>Desenvolvedores</h6>
+						<p class="fragment">
+							- criam abstrações baseadas em seu entendimento, mas que não faz sentido algum para os experts de domínio
+						</p>
+						<p class="fragment">
+							- desenvolvedores trabalhando em diferentes partes do problema tem diferentes entendimentos, cada um resolvendo o problema <span class="fragment highlight-blue">"como acha que deve ser feito"</span>
+						</p>
+					</section>
+					<section>
+						<img src="img/ubiquitous-language.png" height="500" />
+					</section>
+				</section>
+
+				<section>
+					<h2>Ubiquitous Language</h2>
+					<h3>(Linguagem Ubíqua / Onipresente)</h3>
+					<img src="img/ubiquitous-language_2.png" height="500"/>
+				</section>
+
+				<section>
+					<h2>Ubiquitous Language</h2>
+					<section>
+						<p>- a ideia é conseguir alinhar os termos referentes ao negócio entre ambas as partes (time de desenvolvimento e experts de domínio)</p>
+					</section>
+	
+					<section>
+						<p>- não é mágica, é necessário que os dois lados tenham contato e consigam conversar "na mesma língua", comum entre ambos</p>
+					</section>
+	
+					<section>
+						<p>- treino e repetição ajudam o time a melhorar a comunicação</p>
+					</section>
+	
+					<section>
+						<p>- a linguagem ubíqua será usada para comunicação entre o time, no código produzido pelos desenvolvedores, diagramas e no discurso</p>
+					</section>
+
+					<section>
+						<p>- com o tempo, a linguagem vai amadurecendo entre o time, melhorando alguns termos, o que deve ser refletido no código e outros assets</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Model-Driven Design</h2>
+					<section>
+						<img src="img/mdd.png" />
+					</section>
+					<section>
+						<p>Com o conhecimento da linguagem do domínio, buscamos entender e modelar o sistema a ser construído para refletir o domínio</p>
+					</section>
+				</section>
+	
+				<section>
+					<h2>Arquitetura</h2>
+					<section>
+						<img src="img/layered-architecture.png" />
+					</section>
+					<section>
+						<h5>User Interface</h5>
+						<p>Responsável por exibir informações</p>
+					</section>
+					<section>
+						<h5>Application</h5>
+						<p>Coordena as tarefas e delega a responsabilidade para o domain ou infra.</p>
+						<p>Camada fina, cuja responsabilidade é gerenciar a comunicação entre UI - Domain/Infra</p>
+					</section>
+					<section>
+						<h5>Domain</h5>
+						<p>Representa conceitos de negócio, regras de negócio, lógica sobre o negócio. É o coração do software</p>
+					</section>
+					<section>
+						<h5>Infrastructure</h5>
+						<p>Abstrai lógica de itens técnicos, como envio de mensagens, persistencia e até código que auxilia a UI</p>
+					</section>
+					<section>
+						<img src="img/layered-architecture-examples.png" />
+					</section>
+				</section>
+
+				<section>
+					<h4>
+						E se eu tenho um projeto muito simples, preciso de todas essas camadas?
+					</h4>
+					<p class="fragment">
+						As ideias aqui apresentadas, conforme citado pelo autor, são para projetos mais ambiciosos, visando crescimento.
+					</p>
+					<p class="fragment">
+							Se o excel te atende, não precisa criar um sistema, use o excel!
+					</p>
+				</section>
+
+				<section>
+					<h2>Conceitos para modelagem de software</h2>
+				</section>
+
+				<section>
+					<h2>Entidade</h2>
+					<p>Representa um objeto único do domínio, que possua uma identidade conceitual no contexto do domínio</p>
+					<table class="fragment">
+						<thead>
+							<tr>
+								<th>Domínio</th>
+								<th>Entidade</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Pessoa</td>
+								<td>João (possui nome, CPF, que o identificam e diferenciam de outras Pessoas)</td>
+							</tr>
+							<tr>
+								<td>Transação bancária</td>
+								<td>Depósito (conta destino, data/hora)</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Value Object</h2>
+					<p>Representa objetos auxiliares, que não possuem uma identidade conceitual</p>
+					<p class="fragment">Geralmente usados para descrever algumas características de algo</p>
+				</section>
+
+				<section>
+					<h2>Serviço</h2>
+					<section>
+						<p>Representa uma operação que não está associada diretamente com um domínio</p>
+					</section>
+					<section>
+						<h6>Características:</h6>
+						<ul>
+							<li class="fragment">operação referente a um conceito do domínio que não é uma parte natural de uma Entidade ou um Value Object</li>
+							<li class="fragment">a interface é definida em termos de outros elementos do domínio (ex: operações com mais de uma entidade)</li>
+							<li class="fragment">operação aplicável a qualquer elemento do domínio (não apenas ao item ID 123)</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li><strong>App</strong> (TransferenciaContabilAppService)</li>
+							<ul>
+								<li>parseia input (XML, JSON, request)</li>
+								<li>chama service domain para continuar o processo</li>
+								<li>aguarda confirmações e trata resposta recebida</li>
+							</ul>
+							<li><strong>Domain</strong> (TransferenciaContabilDomainService)</li>
+							<ul>
+								<li>faz a interação com outros objetos de domínio (conta contábil, livros de entrada/saída etc)</li>
+								<li>processa os débitos/créditos</li>
+							</ul>
+							<li><strong>Infrastructure</strong> (NotificationService)</li>
+							<ul>
+								<li>envia e-mail confirmando operação</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<img src="img/LayersAndDDD.png" />
+					</section>
+				</section>
+
+				<section>
+					<h2>Modulos (pacotes)</h2>
+					<p>Representa um agrupador de itens referentes a um mesmo conceito, buscando seus nomes da linguagem ubíqua</p>
+				</section>
+
+				<section>
+					<h2>Modelagem e comportamento dos Domains</h2>
+				</section>
+
+				<section>
+					<h2>Agregação</h2>
+					<section>
+						<img src="img/aggregate.png" height="500" />
+					</section>
+					<section>
+						<p>Em uma associação entre domains, as agregações são formas de destacar a entidade que coordena outros domínios</p>
+						<p class="fragment">Apagando-se a raiz da agregação, todos os outros itens são removidos também, pois a agregação deixa de existir</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Fábrica</h2>
+					<p>Facilita a criação de objetos (ou até uma agregação completa)</p>
+					<p class="fragment">Pode ser um construtor comum (em casos mais simples) ou uma implementação do pattern Factory do GOF</p>
+				</section>
+
+				<section>
+					<h2>Repositório</h2>
+					<p>Uma interface clara que simplifica a forma como as entidades trabalham com dados</p>
+
+					<pre><code>Ex: PedidoRepository -> buscarPedidoPorNumero</code></pre>
+				</section>
+
+				<section>
+					<h2>AntiCorruption Layer</h2>
+					<section>
+						<p>Em um exemplo de integração com um outro sistema, uma classe (ou conjunto) acaba sendo a responsável por "conversar" com o sistema externo</p>
+					</section>
+					<section>
+						<img src="img/anticorruptionlayer.png" />
+					</section>
+					<section>
+						<ul>
+							<li>Esta camada é responsável por traduzir as informações recebidas do sistema em algo do domínio em questão</li>
+							<li class="fragment">Alterações no sistema terceiro não impactam o sistema como um todo, mas demandará ajustes na AntiCorruption Layer</li>
+						</ul>
+					</section>
+				</section>
+				<section data-background="img/finish.jpg">
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

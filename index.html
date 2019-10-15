@@ -41,9 +41,9 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>DDD</h1>
-					<h2>Domain Driven Design</h2>
+				<section data-background="img/ddd-telefonica.png" data-background-opacity="0.8">
+					<h1 style="color: #fff">DDD</h1>
+					<h2 style="color: #fff">Domain Driven Design</h2>
 					<p>
 						<a href="https://github.com/studiojms">Jefferson Mariano de Souza</a>
 					</p>
@@ -57,7 +57,7 @@
 					<h3>Subtítulo: Enfrentando complexidade no coração do software</h3>
 				</section>
 
-				<section>
+				<section data-background="img/quarter.png" data-background-opacity="0.6">
 					<h3>Dividido em 4 partes</h2>
 					<ul>
 						<li>I - Fazendo o Domain Model funcionar</li>
@@ -93,13 +93,23 @@
 				</section>
 
 				<section>
-					<blockquote>
-						Um bom modelo do domínio pode ser muito valioso, mas não é algo fácil de fazer. Poucos fazem isso bem, e é muito difícil de ensinar.
-					</blockquote>
-					<cite>Eric Evans</cite>
+					<div style="display: flex;">
+							<div style="flex: 2">
+									<blockquote>
+										Um bom modelo do domínio pode ser muito valioso, mas não é algo fácil de fazer. Poucos fazem isso bem, e é muito difícil de ensinar.
+									</blockquote>
+									<cite>Eric Evans</cite>
+							</div>
+							<div style="align-items: center;
+							align-self: center;
+							width: 200%;
+							flex: 2;">
+									<img src="img/eric-evans.png" />
+							</div>
+					</div>
 				</section>
 
-				<section>
+				<section data-background="img/success-failure.jpeg" data-background-position="bottom" data-background-opacity="0.4">
 					<blockquote>
 						Alguns de meus projetos foram um sucesso, outros falharam.
 						Uma característica comum dos projetos que foram sucesso foi um modelo de domínimo rico que evoluiu através de interações de design, que se tornaram parte da estrutura do projeto.
@@ -107,11 +117,11 @@
 					<cite>Eric Evans</cite>
 				</section>
 
-				<section>
+				<section data-background="img/example.jpg" data-background-opacity="0.3">
 					<p>No desenvolvimento do livro, o autor busca comentar e exemplificar com alguns projetos de sua experiência.</p>
 				</section>
 
-				<section>
+				<section data-background="img/Domain_model.png" data-background-opacity="0.3">
 					<h2>Modelo</h2>
 					<p class="fragment">Uma representação de algo, de acordo com os conhecimentos de quem o representa</p>
 				</section>
@@ -122,7 +132,7 @@
 					</section>
 					<section>
 						<h6>Sec 6 A.C.</h6>
-						<img src="img/evolucao-mapa-mundi_001.jpg">
+						<img src="img/evolucao-mapa-mundi_001.jpg" height="700px">
 					</section>
 					<section>
 						<h6>Sec 5 A.C.</h6>
@@ -136,9 +146,8 @@
 						<h6>Sec 16 D.C.</h6>
 						<img src="img/evolucao-mapa-mundi_017.jpeg">
 					</section>
-					<section>
+					<section data-background="img/evolucao-mapa-mundi_019.jpg" data-background-opacity="0.7">
 						<h6>Atualmente</h6>
-						<img src="img/evolucao-mapa-mundi_019.jpg">
 					</section>
 				</section>
 
@@ -168,7 +177,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-background="img/comunicacao.jpg" data-background-opacity="0.2">
 					<h2>Comunicação</h2>
 					<section>
 						<h6 class="fragment">Experts de domínio</h6>
@@ -202,7 +211,7 @@
 					<img src="img/ubiquitous-language_2.png" height="500"/>
 				</section>
 
-				<section>
+				<section data-background="img/ubiquitous-language_2.png" data-background-opacity="0.1">
 					<h2>Ubiquitous Language</h2>
 					<section>
 						<p>- a ideia é conseguir alinhar os termos referentes ao negócio entre ambas as partes (time de desenvolvimento e experts de domínio)</p>
@@ -235,7 +244,7 @@
 					</section>
 				</section>
 	
-				<section>
+				<section data-background="img/layered-architecture.png" data-background-opacity="0.1" data-background-position="bottom">
 					<h2>Arquitetura</h2>
 					<section>
 						<img src="img/layered-architecture.png" />
@@ -278,7 +287,7 @@
 					<h2>Conceitos para modelagem de software</h2>
 				</section>
 
-				<section>
+				<section data-background="img/identidade.jpg" data-background-opacity="0.2">
 					<h2>Entidade</h2>
 					<p>Representa um objeto único do domínio, que possua uma identidade conceitual no contexto do domínio</p>
 					<table class="fragment">
@@ -301,13 +310,13 @@
 					</table>
 				</section>
 
-				<section>
+				<section data-background="img/endereco.jpg" data-background-opacity="0.2">
 					<h2>Value Object</h2>
 					<p>Representa objetos auxiliares, que não possuem uma identidade conceitual</p>
 					<p class="fragment">Geralmente usados para descrever algumas características de algo</p>
 				</section>
 
-				<section>
+				<section data-background="img/service.jpeg" data-background-opacity="0.2">
 					<h2>Serviço</h2>
 					<section>
 						<p>Representa uma operação que não está associada diretamente com um domínio</p>
@@ -320,6 +329,10 @@
 							<li class="fragment">operação aplicável a qualquer elemento do domínio (não apenas ao item ID 123)</li>
 						</ul>
 					</section>
+
+					<section>
+							<img src="img/LayersAndDDD.png" />
+					</section>
 					<section>
 						<ul>
 							<li><strong>App</strong> (TransferenciaContabilAppService)</li>
@@ -328,23 +341,25 @@
 								<li>chama service domain para continuar o processo</li>
 								<li>aguarda confirmações e trata resposta recebida</li>
 							</ul>
+						</ul>
+					</section>
+					<section>
+						<ul>
 							<li><strong>Domain</strong> (TransferenciaContabilDomainService)</li>
 							<ul>
 								<li>faz a interação com outros objetos de domínio (conta contábil, livros de entrada/saída etc)</li>
 								<li>processa os débitos/créditos</li>
 							</ul>
+							<br/>
 							<li><strong>Infrastructure</strong> (NotificationService)</li>
 							<ul>
 								<li>envia e-mail confirmando operação</li>
 							</ul>
 						</ul>
 					</section>
-					<section>
-						<img src="img/LayersAndDDD.png" />
-					</section>
 				</section>
 
-				<section>
+				<section data-background="img/package.jpg" data-background-opacity="0.2">
 					<h2>Modulos (pacotes)</h2>
 					<p>Representa um agrupador de itens referentes a um mesmo conceito, buscando seus nomes da linguagem ubíqua</p>
 				</section>
@@ -353,7 +368,7 @@
 					<h2>Modelagem e comportamento dos Domains</h2>
 				</section>
 
-				<section>
+				<section data-background="img/car.png" data-background-opacity="0.2">
 					<h2>Agregação</h2>
 					<section>
 						<img src="img/aggregate.png" height="500" />
@@ -377,6 +392,8 @@
 					<pre><code>Ex: PedidoRepository -> buscarPedidoPorNumero</code></pre>
 				</section>
 
+				<section data-background="img/domain-model.jpeg"></section>
+
 				<section>
 					<h2>AntiCorruption Layer</h2>
 					<section>
@@ -392,8 +409,11 @@
 						</ul>
 					</section>
 				</section>
-				<section data-background="img/finish.jpg">
+				<section data-background="img/credits.gif">
 				</section>
+				<section data-background-video="img/ddd.mp4" data-autoplay>
+				</section>
+				<!--<section data-background-iframe="https://www.youtube.com/embed/EA0hsTxpDt0?controls=0&showinfo=0&autohide=1" data-autoplay></section> -->
 
 			</div>
 
